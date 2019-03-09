@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+h1 {
+	margin-bottom: 3rem;
+}
+
+body {
+	background-color: khaki;
+}
+
+.selector {
+	font-size: 4rem;
+}
+
+.caption {
+	font-size: 4rem;
+}

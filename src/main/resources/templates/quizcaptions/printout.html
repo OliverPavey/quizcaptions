@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.tymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz Captions</title>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
+	<link rel="stylesheet" href="/css/universal.css"></link>
+	<link rel="stylesheet" href="/css/question.css"></link>
+	<link rel="stylesheet" href="/css/caption.css"></link>
+</head>
+<body>
+<div class="container">
+
+<h1 class="text-center" th:text="${quiz.name}">Quiz Questions</h1>
+
+<th:block th:each="round,rstats : ${quiz.rounds}">
+	<hr/>
+	<h3>[<th:block th:text="${rstats.index}"></th:block>] 
+		<th:block th:text="${round.name}"></th:block></h3>
+	<th:block th:each="question,stats : ${round.questions}">
+		<br/>
+		<p>Question (<th:block th:text="${stats.index}"></th:block>):  
+			<strong><th:block th:text="${question.question}"></th:block></strong></p>
+		<p>Answer: <th:block th:text="${question.answer}"></th:block></p>
+	</th:block>
+</th:block>
+
+<hr/>
+<h6 class="text-center">***</h6>
+
+</div>
+<script src="/webjars/bootstrap/jquery/1.11.1/jquery.min.js"></script> 
+<script src="/webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

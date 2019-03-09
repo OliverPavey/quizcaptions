@@ -1,0 +1,27 @@
+package com.github.oliverpavey.quizcaptions;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class MenuChoice {
+	private final Menu menu;
+	private final String title;
+	
+	public int getIndex() {
+		return menu.getChoices().indexOf(this);
+	}
+	
+	public char getLetter() {
+		return (char)( 'A' + getIndex() );
+	}
+	
+	public char getNumber() {
+		return (char)( '1' + getIndex() );
+	}
+	
+	public String getDestination() {
+		return String.format(menu.getTemplate(), getIndex());
+	}
+}

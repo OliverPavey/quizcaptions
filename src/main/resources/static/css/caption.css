@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+. {
+	font-size: 10px;
+	background-color: pink;
+}
+
+.quizcaptions {
+	background-color: skyblue;
+	width: 100vw;
+	height: 100vh;
+	overflow:hidden;
+}
+
+.courier {
+	position: relative;
+	width: 300000vw;
+	height: 100vh;
+	top: 0px;
+	left: 0px;
+	
+	animation:journey 30s linear;
+	-moz-animation:journey 30s linear;
+	-webkit-animation:journey 30s linear;
+}
+
+.marquee {
+	background-color: skyblue;
+	position: absolute;
+	left: 105vw;
+	top: 20vh;
+	width: 300000vw;
+	height: 100vh;
+		
+	font-size: 36rem;
+	font-family: verdana;
+}
+
+@keyframes journey 
+{
+	from{left:105vw;}
+	to{left:-40000px;}
+}
+@-moz-keyframes journey {
+	from{left:105vw;}
+	to{left:-40000px;}
+}
+@-webkit-keyframes journey {
+	from{left:105vw;}
+	to{left:-40000px;}
+}

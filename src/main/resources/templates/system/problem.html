@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.tymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz Captions</title>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
+	<link rel="stylesheet" href="/css/universal.css"></link>
+</head>
+<body>
+<div class="container">
+
+<h1>A problem has occurred</h1>
+
+<div class="panel panel-warning">
+	<div class="panel-heading">A problem has occurred</div>
+	<div class="panel-body">
+		<p th:text="${problem}"></p>
+	</div>
+</div>
+
+</div>
+<script src="/webjars/bootstrap/jquery/1.11.1/jquery.min.js"></script> 
+<script src="/webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+h1 {
+	margin-bottom: 3rem;
+}
+
+body {
+	background-color: lemonchiffon;
+}
+
+.choice-table {
+	display: table;
+	table-layout: fixed;
+}
+.choice-display {
+	display: table-cell;
+	
+	line-height: 7rem;
+	margin-right: 15rem;
+}
+
+h2 {
+	margin-bottom: 5rem;
+}
+.points {
+	color: red;
+}
+
+
+.wrapper {
+	margin-bottom: 2rem;
+}
+.selector {
+	font-size: 4rem;
+	margin-bottom: 20rem;
+	margin-right: 3rem;
+}
+
+.caption {
+	font-size: 4rem;
+}

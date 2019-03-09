@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.tymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz Captions</title>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
+	<link rel="stylesheet" href="/css/universal.css"></link>
+</head>
+<body>
+<div class="container">
+
+<h1>Error</h1>
+
+<div class="panel panel-danger">
+	<div class="panel-heading">A problem has occurred</div>
+	<div class="panel-body">
+		<p>HTTP Status Code: <span th:text="${statusCode}"></span></p>
+		<p>HTTP Status String: <span th:text="${status}"></span></p>
+		<p>Java Exception Class: <span th:text="${exception}"></span></p>
+		<p>Java Exception message: <span th:text="${message}"></span></p>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-body">Error information meta-data properties</div>
+	<div class="panel-footer">
+  		<ul><li th:each="name : ${attrNames}" th:text="${name}"></li></ul>
+  		<table class="table">
+			<tr th:each="pair : ${attrPairs}">
+				<td><span th:text="${pair.key}"></span></td>
+				<td><span th:text="${pair.value}"></span></td>
+			</tr>  	
+  		</table>
+	</div>
+</div>
+
+</div>
+<script src="/webjars/bootstrap/jquery/1.11.1/jquery.min.js"></script> 
+<script src="/webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

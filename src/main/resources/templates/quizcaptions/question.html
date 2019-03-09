@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.tymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Quiz Captions</title>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
+	<link rel="stylesheet" href="/css/universal.css"></link>
+	<link rel="stylesheet" href="/css/question.css"></link>
+	<link rel="stylesheet" href="/css/caption.css"></link>
+</head>
+<body>
+
+<div class="questionnumber">
+	<span class="label label-success" th:text="'Question '+${questionNo}"></span>
+</div>
+
+<div class="quizcaptions">
+	<div class="courier">
+		<pre id="question" class="marquee" th:text="${question}">Which king of England wore the biggest shoes?</pre>
+	</div>
+</div>
+
+<div class="hidden">
+	<th:block th:with="nextUrl='/question?quizId='+${quizId}+'&roundId='+${roundId}+'&questionId='+${nextId}">
+	<th:block th:with="roundUrl='/round?quizId='+${quizId}+'&roundId='+${roundId}">
+	<th:block th:with="quizUrl='/quiz?quizId='+${quizId}">
+	<a accesskey="N" th:href="${hasNext ? nextUrl : quizUrl}">next</a>
+	<a accesskey="M" th:href="${roundUrl}">next</a>
+	</th:block></th:block></th:block>
+</div>
+
+<script src="/webjars/bootstrap/jquery/1.11.1/jquery.min.js"></script> 
+<script src="/webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
