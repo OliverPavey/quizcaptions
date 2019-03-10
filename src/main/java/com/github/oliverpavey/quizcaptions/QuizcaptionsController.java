@@ -3,6 +3,9 @@ package com.github.oliverpavey.quizcaptions;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -231,7 +234,11 @@ public class QuizcaptionsController implements ErrorController {
 		
 		Quiz quiz = quizForge.getQuiz(quizId);
 		
+		Map<Integer, Character> letters = IntStream.range(0,25).boxed()
+				.collect(Collectors.toMap(i-> i, i-> (char)('A'+i)));
+		
 		model.addAttribute("quiz", quiz);
+		model.addAttribute("letters", letters);
 		
 		return "quizcaptions/printout";
 	}

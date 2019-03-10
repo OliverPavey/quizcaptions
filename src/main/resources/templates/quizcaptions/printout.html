@@ -6,8 +6,7 @@
 	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
 	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
 	<link rel="stylesheet" href="/css/universal.css"></link>
-	<link rel="stylesheet" href="/css/question.css"></link>
-	<link rel="stylesheet" href="/css/caption.css"></link>
+	<link rel="stylesheet" href="/css/printout.css"></link>
 </head>
 <body>
 <div class="container">
@@ -16,7 +15,7 @@
 
 <th:block th:each="round,rstats : ${quiz.rounds}">
 	<hr/>
-	<h3>[<th:block th:text="${rstats.index}"></th:block>] 
+	<h3>[<th:block th:text="${letters.get(rstats.index)}"></th:block>] 
 		<th:block th:text="${round.name}"></th:block></h3>
 	<th:block th:each="question,stats : ${round.questions}">
 		<br/>
