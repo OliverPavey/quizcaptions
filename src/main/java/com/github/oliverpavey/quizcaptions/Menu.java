@@ -5,9 +5,11 @@ import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
+@ToString(callSuper=false, exclude={"choices"})
 public class Menu {
 	private final String template;
 	private final List<MenuChoice> choices = new ArrayList<>();

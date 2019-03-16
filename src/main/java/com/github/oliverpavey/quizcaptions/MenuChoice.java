@@ -2,9 +2,11 @@ package com.github.oliverpavey.quizcaptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
+@ToString(callSuper=false, exclude={"menu"})
 public class MenuChoice {
 	private final Menu menu;
 	private final String title;
