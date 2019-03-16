@@ -36,7 +36,6 @@ public class QuizcaptionsController implements ErrorController {
 		quizForge.getQuizzes().stream().forEach(quiz ->
 			menu.add(new MenuChoice(menu, quiz.getName()) ));
 		
-		model.addAttribute("css", "quiz-menu");
 		model.addAttribute("title", "Select a Quiz");
 		model.addAttribute("menu", menu);
 		
@@ -57,7 +56,6 @@ public class QuizcaptionsController implements ErrorController {
 		quiz.getRounds().stream().forEach(q ->
 			menu.add(new MenuChoice(menu, q.getName()) ));
 		
-		model.addAttribute("css", "round-menu");
 		model.addAttribute("title", "Select a Round");
 		model.addAttribute("menu", menu);
 		
@@ -85,7 +83,6 @@ public class QuizcaptionsController implements ErrorController {
 		String other   = !answers ? "points" : "round";
 
 		
-		model.addAttribute("css", "round");
 		model.addAttribute("title", round.getName());
 		model.addAttribute("subtitle", answers ? "Answers" : "Questions");
 		model.addAttribute("quizId", quizId );
@@ -107,7 +104,7 @@ public class QuizcaptionsController implements ErrorController {
 		if (redirect!=null)
 			return redirect;
 		
-		return "quizcaptions/round";
+		return "quizcaptions/menu";
 	}
 	
 	@GetMapping("/points")
@@ -120,7 +117,7 @@ public class QuizcaptionsController implements ErrorController {
 		if (redirect!=null)
 			return redirect;
 		
-		return "quizcaptions/round";
+		return "quizcaptions/menu";
 	}
 	
 	private String qaModel(Model model, 
