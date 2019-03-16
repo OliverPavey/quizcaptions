@@ -4,5 +4,34 @@
 	position: absolute;
 	top: 20vh;
 	left: 10vw;
-	font-size: 20vh; 
+	font-size: 20vh;
+	
+    animation: remove 0s ease-out 1s forwards;
+    -moz-animation: remove 0s ease-out 1s forwards;
+    -webkit-animation: remove 0s ease-out 1s forwards;
+}
+
+@keyframes remove {
+	to{
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        visiblity: hidden;		
+	}
+}
+@-moz-keyframes remove {
+	to{
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        visiblity: hidden;		
+	}
+}
+@-webkit-keyframes remove {
+	to{
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        visiblity: hidden;		
+	}
 }
