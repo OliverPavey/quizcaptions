@@ -77,7 +77,7 @@ public class QuizcaptionsController implements ErrorController {
 		String page  = answers ? "answer" : "question";
 		Menu menu = new Menu("/"+page+"?quizId="+quizId+"&roundId="+roundId+"&questionId=%d");
 		IntStream.range(0, round.getQuestions().size()).forEach(questionId ->
-			menu.add(new MenuChoice(menu, String.format("Question %d", questionId)) ));
+			menu.add(new MenuChoice(menu, String.format("Question %d", questionId+1)) ));
 
 		String current =  answers ? "points" : "round";
 		String other   = !answers ? "points" : "round";

@@ -11,7 +11,7 @@
 <div class="questionnumber" th:with="
 	lblType=${showAnswer?'label-warning':'label-success'},
 	labelText=${showAnswer?'Answer':'Question'}">
-	<span th:class="'label '+${lblType}" th:text="${labelText}+' '+${questionNo}"></span>
+	<span th:class="'label '+${lblType}" th:text="${labelText}+' '+${questionNo+1}"></span>
 </div>
 
 <div class="quizcaptions">
