@@ -8,23 +8,25 @@
 <body>
 <div th:replace="fragments/page :: header"></div>
 
-<div class="questionnumber">
-	<span class="label label-success" th:text="'Question '+${questionNo}"></span>
+<div class="questionnumber" th:with="
+	lblType=${showAnswer?'label-warning':'label-success'},
+	labelText=${showAnswer?'Answer':'Question'}">
+	<span th:class="'label '+${lblType}" th:text="${labelText}+' '+${questionNo}"></span>
 </div>
 
 <div class="quizcaptions">
 	<div class="courier">
-		<pre id="question" class="marquee" th:text="${question}">Which king of England wore the biggest shoes?</pre>
+		<pre id="question" class="marquee" th:text="${question + (showAnswer ? ' ::: '+answer : '')}"
+		>Which king of England wore the biggest shoes? ::: The one with the biggest feet.</pre>
 	</div>
 </div>
 
-<div class="hidden">
-	<th:block th:with="nextUrl='/question?quizId='+${quizId}+'&roundId='+${roundId}+'&questionId='+${nextId}">
-	<th:block th:with="roundUrl='/round?quizId='+${quizId}+'&roundId='+${roundId}">
-	<th:block th:with="quizUrl='/quiz?quizId='+${quizId}">
+<div class="hidden" th:with="
+	nextUrl='/'+${showAnswer?'answer':'question'}+'?quizId='+${quizId}+'&roundId='+${roundId}+'&questionId='+${nextId},
+	roundUrl='/round?quizId='+${quizId}+'&roundId='+${roundId},
+	quizUrl='/quiz?quizId='+${quizId}">
 	<a accesskey="N" th:href="${hasNext ? nextUrl : quizUrl}">next</a>
 	<a accesskey="M" th:href="${roundUrl}">next</a>
-	</th:block></th:block></th:block>
 </div>
 
 <div th:replace="fragments/page :: footer"></div>

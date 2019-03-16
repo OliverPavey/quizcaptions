@@ -125,7 +125,7 @@ public class QuizcaptionsController implements ErrorController {
 	
 	private String qaModel(Model model, 
 			Integer quizId, Integer roundId, Integer questionId, 
-			boolean includeAnswer) {
+			boolean showAnswer) {
 		
 		if (quizId==null)
 			return getRoot(model);
@@ -149,9 +149,10 @@ public class QuizcaptionsController implements ErrorController {
 		Integer nextId = questionId+1;
 		boolean hasNext = nextId < questions.size(); 
 		
+		model.addAttribute("showAnswer", showAnswer);
 		model.addAttribute("questionNo", questions.indexOf(question) );
 		model.addAttribute("question", question.getQuestion() );
-		model.addAttribute("answer", question.getAnswer() );
+		model.addAttribute("answer", showAnswer ? question.getAnswer() : "" );
 		model.addAttribute("quizId", quizId );
 		model.addAttribute("roundId", roundId );
 		model.addAttribute("questionId", questionId );
@@ -186,7 +187,7 @@ public class QuizcaptionsController implements ErrorController {
 		if (redirect!=null)
 			return redirect;
 		
-		return "quizcaptions/answer";
+		return "quizcaptions/question";
 	}
 	
 	private String problem(Model model, String problem) {
