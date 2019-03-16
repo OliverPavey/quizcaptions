@@ -22,6 +22,9 @@ import com.github.oliverpavey.quizcaptions.quiz.Question;
 import com.github.oliverpavey.quizcaptions.quiz.Quiz;
 import com.github.oliverpavey.quizcaptions.quiz.QuizForge;
 import com.github.oliverpavey.quizcaptions.quiz.Round;
+import com.github.oliverpavey.quizcaptions.store.Menu;
+import com.github.oliverpavey.quizcaptions.store.MenuChoice;
+import com.github.oliverpavey.quizcaptions.store.ValuePair;
 
 @Controller
 public class QuizcaptionsController implements ErrorController {

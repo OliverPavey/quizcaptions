@@ -1,11 +1,13 @@
-package com.github.oliverpavey.quizcaptions;
+package com.github.oliverpavey.quizcaptions.store;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor 
-class ValuePair {
+@ToString
+public class ValuePair {
 	private String key;
 	private String value;
 }

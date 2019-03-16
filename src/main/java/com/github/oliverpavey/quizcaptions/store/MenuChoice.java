@@ -1,4 +1,4 @@
-package com.github.oliverpavey.quizcaptions;
+package com.github.oliverpavey.quizcaptions.store;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

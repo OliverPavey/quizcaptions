@@ -1,4 +1,4 @@
-package com.github.oliverpavey.quizcaptions;
+package com.github.oliverpavey.quizcaptions.store;
 
 import java.util.ArrayList;
 import java.util.List;
