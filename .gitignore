@@ -31,4 +31,4 @@ mvnw.cmd
 /.mvn/**
 
 ### Private Stuff ###
-/src/main/java/com/github/oliverpavey/quizcaptions/quizzes/SpringTwist2019.java
+/quizzes/private/**

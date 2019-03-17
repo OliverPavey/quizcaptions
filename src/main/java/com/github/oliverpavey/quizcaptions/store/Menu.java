@@ -16,5 +16,5 @@ public class Menu {
 
 	public Object add(MenuChoice menuChoice) {
 		return choices.add(menuChoice);
-	} 
+	}
 }

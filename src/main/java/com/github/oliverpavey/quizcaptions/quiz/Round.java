@@ -4,10 +4,12 @@ import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Round {
-	private final String name;
-	private final List<Question> questions;
+	private String name;
+	private List<Question> questions;
 }

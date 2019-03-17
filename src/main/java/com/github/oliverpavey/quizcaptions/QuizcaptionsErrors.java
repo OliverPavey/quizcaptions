@@ -18,7 +18,7 @@ public class QuizcaptionsErrors {
 
 	public String problem(Model model, String problem) {
 		model.addAttribute("problem", problem);
-		return "quizcaptions/problem";
+		return "system/problem";
 	}
 
 	public String getError(Model model, HttpServletRequest request) {

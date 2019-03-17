@@ -4,12 +4,15 @@ import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class Quiz {
-	private final String name;
-	private final List<Round> rounds;
+	private String code;
+	private String name;
+	private List<Round> rounds;
 	
 	public Round getRound(int roundId) {
 		return rounds.get(roundId);

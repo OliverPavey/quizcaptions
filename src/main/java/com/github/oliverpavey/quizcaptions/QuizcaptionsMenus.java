@@ -59,6 +59,12 @@ public class QuizcaptionsMenus {
 		quizForge.getQuizzes().stream().forEach(quiz ->
 			menu.add(new MenuChoice(menu, quiz.getName()) ));
 		
+		if (menu.getChoices().size()==0)
+			return quizcaptionsErrors.problem(model, "No quizzes found. "
+					+ "Has environment variable QUIZ_FOLDERS been pointed to a folder "
+					+ "(or comma separated list of folders) "
+					+ "containing JSON files containing a quiz or quizzes?");
+		
 		model.addAttribute("title", "Select a Quiz");
 		model.addAttribute("menu", menu);
 		
