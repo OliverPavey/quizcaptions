@@ -8,14 +8,14 @@ import org.springframework.ui.Model;
 
 import com.github.oliverpavey.quizcaptions.quiz.Question;
 import com.github.oliverpavey.quizcaptions.quiz.Quiz;
-import com.github.oliverpavey.quizcaptions.quiz.QuizForge;
+import com.github.oliverpavey.quizcaptions.quiz.QuizRegister;
 import com.github.oliverpavey.quizcaptions.quiz.Round;
 
 @Component
 public class QuizcaptionsQuestions {
 
 	@Autowired
-	private QuizForge quizForge;
+	private QuizRegister quizForge;
 	
 	@Autowired
 	private QuizcaptionsErrors quizcaptionsErrors;

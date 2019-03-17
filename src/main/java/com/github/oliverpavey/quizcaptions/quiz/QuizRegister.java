@@ -21,7 +21,7 @@ import lombok.extern.java.Log;
 
 @Component
 @Log
-public class QuizForge {
+public class QuizRegister {
 
 	@Autowired
 	private QuizConfig quizConfig;

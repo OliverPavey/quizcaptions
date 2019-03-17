@@ -9,13 +9,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 import com.github.oliverpavey.quizcaptions.quiz.Quiz;
-import com.github.oliverpavey.quizcaptions.quiz.QuizForge;
+import com.github.oliverpavey.quizcaptions.quiz.QuizRegister;
 
 @Component
 public class QuizcaptionsPrintouts {
 
 	@Autowired
-	private QuizForge quizForge;
+	private QuizRegister quizForge;
 	
 	public String getPrintoutQuestions(Model model, Integer quizId) {
 		

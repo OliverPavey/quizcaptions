@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 import com.github.oliverpavey.quizcaptions.quiz.Quiz;
-import com.github.oliverpavey.quizcaptions.quiz.QuizForge;
+import com.github.oliverpavey.quizcaptions.quiz.QuizRegister;
 import com.github.oliverpavey.quizcaptions.quiz.Round;
 import com.github.oliverpavey.quizcaptions.store.Menu;
 import com.github.oliverpavey.quizcaptions.store.MenuChoice;
@@ -16,7 +16,7 @@ import com.github.oliverpavey.quizcaptions.store.MenuChoice;
 public class QuizcaptionsMenus {
 
 	@Autowired
-	private QuizForge quizForge;
+	private QuizRegister quizForge;
 	
 	@Autowired
 	private QuizcaptionsErrors quizcaptionsErrors;
