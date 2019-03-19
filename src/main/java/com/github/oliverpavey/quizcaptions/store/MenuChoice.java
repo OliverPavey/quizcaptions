@@ -10,20 +10,13 @@ import lombok.ToString;
 public class MenuChoice {
 	private final Menu menu;
 	private final String title;
+	private final String endpoint;
 	
-	public int getIndex() {
+	private int getIndex() {
 		return menu.getChoices().indexOf(this);
 	}
 	
 	public char getLetter() {
 		return (char)( 'A' + getIndex() );
-	}
-	
-	public char getNumber() {
-		return (char)( '1' + getIndex() );
-	}
-	
-	public String getDestination() {
-		return String.format(menu.getTemplate(), getIndex());
 	}
 }

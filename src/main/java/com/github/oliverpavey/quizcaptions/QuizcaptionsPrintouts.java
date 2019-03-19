@@ -15,11 +15,11 @@ import com.github.oliverpavey.quizcaptions.quiz.QuizRegister;
 public class QuizcaptionsPrintouts {
 
 	@Autowired
-	private QuizRegister quizForge;
+	private QuizRegister quizRegister;
 	
-	public String getPrintoutQuestions(Model model, Integer quizId) {
+	public String getPrintoutQuestions(Model model, String quizId) {
 		
-		Quiz quiz = quizForge.getQuiz(quizId);
+		Quiz quiz = quizRegister.getQuiz(quizId);
 		
 		Map<Integer, Character> letters = IntStream.range(0,25).boxed()
 				.collect(Collectors.toMap(i-> i, i-> (char)('A'+i)));

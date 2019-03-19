@@ -10,20 +10,11 @@
 
 <h1 class="text-center" th:text="${title}">Title</h1>
 
-<h2 th:if="${subtitle != null}" th:text="${subtitle}" th:class="${current}">Questions / Answers</h2>
+<h2 th:if="${subtitle != null}" th:text="${subtitle}">Subtitle</h2>
 
 <div th:each="choice : ${menu.choices}" class="wrapper">
 	<span class="selector label label-primary" th:text="${choice?.letter}"></span>
-	<a class="caption" th:href="${choice.destination}" th:accesskey="${choice.letter}" th:text="${choice.title}"></a>
-</div>
-
-<div th:if="${roundId != null}" class="hidden" th:with="
-	nextUrl='/question?quizId='+${quizId}+'&roundId='+${roundId}+'&questionId=0',
-	quizUrl='/quiz?quizId='+${quizId},
-	otherUrl='/'+${other}+'?quizId='+${quizId}+'&roundId='+${roundId}">
-	<a accesskey="N" th:href="${nextUrl}">next</a>
-	<a accesskey="M" th:href="${quizUrl}">quiz</a>
-	<a accesskey="O" th:href="${otherUrl}">other</a>
+	<a class="caption" th:href="${choice?.endpoint}" th:accesskey="${choice?.letter}" th:text="${choice?.title}"></a>
 </div>
 
 </div>

@@ -5,12 +5,41 @@
 	<title>Quiz Captions</title>
 	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
 	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
-	<link rel="stylesheet" href="/css/universal.css"></link></th:block>
+	<link rel="stylesheet" href="/css/universal.css"></link>
+	<link rel="stylesheet" href="/css/navigation.css"></link></th:block>
 </head>
 <body>
 
 <div th:fragment="header">
-<span></span>
+	<div class="navigation-bar">
+		<span>
+			<a class="btn btn-default btn-lg" href="/" accesskey="#">
+				<span class="glyphicon glyphicon glyphicon-home"></span>
+			</a>
+			<a class="btn btn-default btn-lg" 
+				href="javascript:window.location.href=window.location.href"	accesskey="'">
+				<span class="glyphicon glyphicon-repeat"></span>
+			</a>
+			<a class="btn btn-default btn-lg" th:classappend="${navPrint==null}?hidden" 
+					th:href="${navPrint}">
+				<span class="glyphicon glyphicon glyphicon-th-list"></span>
+			</a>
+		</span>
+		<span class="pull-right">
+			<a class="btn btn-default btn-lg" th:classappend="${navPrev==null}?btn-disabled" 
+					th:href="${navPrev}" accesskey=",">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="btn btn-default btn-lg" th:classappend="${navUp==null}?btn-disabled" 
+					th:href="${navUp}" accesskey="/">
+				<span class="glyphicon glyphicon-chevron-up"></span>
+			</a>
+			<a class="btn btn-default btn-lg" th:classappend="${navNext==null}?btn-disabled" 
+					th:href="${navNext}" accesskey=".">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</span>
+	</div>
 </div>
 
 <div th:fragment="footer">

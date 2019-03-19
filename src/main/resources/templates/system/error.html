@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.tymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Quiz Captions</title>
-	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap.min.css"></link>
-	<link rel="stylesheet" href="/webjars/bootstrap/3.4.1/css/bootstrap-theme.min.css"></link>
-	<link rel="stylesheet" href="/css/universal.css"></link>
+	<th:block th:insert="fragments/page :: headblock"></th:block>
+	<link rel="stylesheet" href="/css/error.css"></link>
 </head>
 <body>
+<div th:replace="fragments/page :: header"></div>
 <div class="container">
 
 <h1>Error</h1>
@@ -23,20 +21,19 @@
 </div>
 
 <div class="panel panel-default">
-	<div class="panel-body">Error information meta-data properties</div>
-	<div class="panel-footer">
+	<div class="panel-heading">Error information meta-data properties</div>
+	<div class="panel-body">
   		<ul><li th:each="name : ${attrNames}" th:text="${name}"></li></ul>
-  		<table class="table">
-			<tr th:each="pair : ${attrPairs}">
-				<td><span th:text="${pair.key}"></span></td>
-				<td><span th:text="${pair.value}"></span></td>
-			</tr>  	
-  		</table>
 	</div>
 </div>
 
+<div th:each="pair : ${attrPairs}" class="panel panel-default">
+	<div class="panel-heading" th:text="${pair.key}">Attribute Name</div>
+	<div class="panel-body fw" th:text="${pair.value}"></div>
 </div>
-<script src="/webjars/bootstrap/jquery/1.11.1/jquery.min.js"></script> 
-<script src="/webjars/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</div>
+<div th:replace="fragments/page :: footer"></div>
 </body>
 </html>

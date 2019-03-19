@@ -8,17 +8,17 @@
 <div th:replace="fragments/page :: header"></div>
 <div class="container">
 
-<h1 class="text-center" th:text="${quiz.name}">Quiz Questions</h1>
+<h1 class="text-center" th:text="${quiz?.name}">Quiz Questions</h1>
 
-<th:block th:each="round,rstats : ${quiz.rounds}">
+<th:block th:each="round,rstats : ${quiz?.rounds}">
 	<hr/>
-	<h3>[<th:block th:text="${letters.get(rstats.index)}"></th:block>] 
-		<th:block th:text="${round.name}"></th:block></h3>
-	<th:block th:each="question,stats : ${round.questions}">
+	<h3>[<th:block th:text="${letters.get(rstats?.index)}"></th:block>] 
+		<th:block th:text="${round?.name}"></th:block></h3>
+	<th:block th:each="question,stats : ${round?.questions}">
 		<br/>
-		<p>Question (<th:block th:text="${stats.index}"></th:block>):  
-			<strong><th:block th:text="${question.question}"></th:block></strong></p>
-		<p>Answer: <th:block th:text="${question.answer}"></th:block></p>
+		<p>Question (<th:block th:text="${stats?.index}"></th:block>):  
+			<strong><span class="printer-only" th:text="${question?.question}"></span></strong></p>
+		<p>Answer: <span class="printer-only" th:text="${question?.answer}"></span></p>
 	</th:block>
 </th:block>
 

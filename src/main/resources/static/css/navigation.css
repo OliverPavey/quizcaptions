@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+@media print
+{    
+    .navigation-bar, .navigation-bar *
+    {
+        display: none !important;
+    }
+}
+
+.navigation-bar {
+	position: absolute;
+	width: 80vw;
+	height: 5rem;
+	right: 10vw;
+	z-index: 2;
+}
+
+.navigation-bar a {
+	z-index: 3; /* Ensure on top so can be clicked */
+}
+
+.navigation-bar a span {
+	font-size: 1.8rem;
+}
+
+.btn-disabled {
+	pointer-events: none;
+	touch-events: none;
+	background: #eee;
+	color: white;
+}

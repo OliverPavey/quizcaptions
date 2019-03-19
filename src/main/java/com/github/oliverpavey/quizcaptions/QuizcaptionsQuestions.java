@@ -13,9 +13,12 @@ import com.github.oliverpavey.quizcaptions.quiz.Round;
 
 @Component
 public class QuizcaptionsQuestions {
+	
+	public static final boolean QUESTION = false;
+	public static final boolean ANSWER = true;
 
 	@Autowired
-	private QuizRegister quizForge;
+	private QuizRegister quizRegister;
 	
 	@Autowired
 	private QuizcaptionsErrors quizcaptionsErrors;
@@ -23,8 +26,11 @@ public class QuizcaptionsQuestions {
 	@Autowired
 	private QuizcaptionsMenus quizcaptionsMenus;
 	
+	@Autowired
+	private QuizcaptionsNavigation quizcaptionsNavigation;
+	
 	private String qaModel(Model model, 
-			Integer quizId, Integer roundId, Integer questionId, 
+			String quizId, String roundId, Integer questionId, 
 			boolean showAnswer) {
 		
 		if (quizId==null)
@@ -32,8 +38,8 @@ public class QuizcaptionsQuestions {
 		if (roundId==null)
 			return quizcaptionsMenus.getQuiz(model, quizId);
 		if (questionId==null)
-			return quizcaptionsMenus.getRound(model, quizId, questionId);
-		Quiz quiz = quizForge.getQuiz(quizId);
+			return quizcaptionsMenus.getRound(model, quizId, roundId, QuizcaptionsMenus.SHOW_QUESTIONS);
+		Quiz quiz = quizRegister.getQuiz(quizId);
 		if (quiz==null)
 			return quizcaptionsErrors.problem(model, "Quiz data could not be found");
 		Round round = quiz.getRound(roundId);
@@ -58,13 +64,15 @@ public class QuizcaptionsQuestions {
 		model.addAttribute("questionId", questionId );
 		model.addAttribute("hasNext", hasNext );
 		model.addAttribute("nextId", hasNext ? nextId : null );
+
+		quizcaptionsNavigation.navigationModel(model, quiz, round, question, showAnswer);
 		
 		return null;
 	}
-	
-	public String getQuestion(Model model, Integer quizId, Integer roundId, Integer questionId) {
+
+	public String getQuestion(Model model, String quizId, String roundId, Integer questionId) {
 		
-		String redirect = qaModel(model, quizId, roundId, questionId, false);
+		String redirect = qaModel(model, quizId, roundId, questionId, QUESTION);
 		
 		if (redirect!=null)
 			return redirect;
@@ -72,9 +80,9 @@ public class QuizcaptionsQuestions {
 		return "quizcaptions/question";
 	}
 	
-	public String getAnswer(Model model, Integer quizId, Integer roundId, Integer questionId) {
+	public String getAnswer(Model model, String quizId, String roundId, Integer questionId) {
 		
-		String redirect = qaModel(model, quizId, roundId, questionId, true);
+		String redirect = qaModel(model, quizId, roundId, questionId, ANSWER);
 		
 		if (redirect!=null)
 			return redirect;

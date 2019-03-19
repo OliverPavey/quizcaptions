@@ -7,8 +7,8 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class QuizcaptionsController implements ErrorController {
@@ -28,48 +28,62 @@ public class QuizcaptionsController implements ErrorController {
 	@GetMapping("/")
 	public String getRoot(Model model) {
 		
+		return "redirect:/quiz";
+	}
+	
+	@GetMapping("/quiz")
+	public String getQuizRoot(Model model) {
+		
 		return quizcaptionsMenus.getRoot(model);
 	}
 
-	@GetMapping("/quiz")
+	@GetMapping("/quiz/{quizId}")
 	public String getQuiz(Model model, 
-			@RequestParam(required=false) Integer quizId) {
+			@PathVariable("quizId") String quizId) {
 		
 		return quizcaptionsMenus.getQuiz(model, quizId);
 	}
 	
-	@GetMapping("/round")
+	@GetMapping("/quiz/{quizId}/{roundId}")
 	public String getRound(Model model, 
-			@RequestParam(required=false) Integer quizId,
-			@RequestParam(required=false) Integer roundId) {
+			@PathVariable("quizId") String quizId,
+			@PathVariable("roundId") String roundId) {
 		
 		return quizcaptionsMenus.getRound(model, quizId, roundId);
 	}
 	
-	@GetMapping("/points")
-	public String getPoints(Model model, 
-			@RequestParam(required=false) Integer quizId,
-			@RequestParam(required=false) Integer roundId) {
+	@GetMapping("/quiz/{quizId}/{roundId}/question")
+	public String getRoundQuestions(Model model, 
+			@PathVariable("quizId") String quizId,
+			@PathVariable("roundId") String roundId) {
 		
-		return quizcaptionsMenus.getPoints(model, quizId, roundId);
+		return quizcaptionsMenus.getRound(model, quizId, roundId, QuizcaptionsMenus.SHOW_QUESTIONS);
 	}
 	
-	@GetMapping("/question")
+	@GetMapping("/quiz/{quizId}/{roundId}/answer")
+	public String getRoundAnswers(Model model, 
+			@PathVariable("quizId") String quizId,
+			@PathVariable("roundId") String roundId) {
+		
+		return quizcaptionsMenus.getRound(model, quizId, roundId, QuizcaptionsMenus.SHOW_ANSWERS);
+	}
+	
+	@GetMapping("/quiz/{quizId}/{roundId}/question/{questionId}")
 	public String getQuestion(Model model,
-			@RequestParam(required=false) Integer quizId,
-			@RequestParam(required=false) Integer roundId,
-			@RequestParam(required=false) Integer questionId) {
+			@PathVariable("quizId") String quizId,
+			@PathVariable("roundId") String roundId,
+			@PathVariable("questionId") Integer questionId) {
 		
-		return quizcaptionsQuestions.getQuestion(model, quizId, roundId, questionId);
+		return quizcaptionsQuestions.getQuestion(model, quizId, roundId, questionId-1);
 	}
 	
-	@GetMapping("/answer")
+	@GetMapping("/quiz/{quizId}/{roundId}/answer/{questionId}")
 	public String getAnswer(Model model,
-			@RequestParam(required=false) Integer quizId,
-			@RequestParam(required=false) Integer roundId,
-			@RequestParam(required=false) Integer questionId) {
+			@PathVariable("quizId") String quizId,
+			@PathVariable("roundId") String roundId,
+			@PathVariable("questionId") Integer questionId) {
 		
-		return quizcaptionsQuestions.getAnswer(model, quizId, roundId, questionId);
+		return quizcaptionsQuestions.getAnswer(model, quizId, roundId, questionId-1);
 	}
 	
 	@Override
@@ -83,9 +97,9 @@ public class QuizcaptionsController implements ErrorController {
 		return quizcaptionsErrors.getError(model, request);
 	}
 	
-	@RequestMapping("/printout")
+	@RequestMapping("/quiz/{quizId}/printout")
 	public String getPrintoutQuestions(Model model, 
-			@RequestParam(required=false) Integer quizId) {
+			@PathVariable("quizId") String quizId) {
 		
 		return quizcaptionsPrintouts.getPrintoutQuestions(model, quizId);
 	}

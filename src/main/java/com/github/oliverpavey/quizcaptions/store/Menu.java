@@ -11,10 +11,16 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString(callSuper=false, exclude={"choices"})
 public class Menu {
-	private final String template;
+	private String title;
 	private final List<MenuChoice> choices = new ArrayList<>();
 
-	public Object add(MenuChoice menuChoice) {
-		return choices.add(menuChoice);
+	public MenuChoice add(MenuChoice menuChoice) {
+		choices.add(menuChoice);
+		return menuChoice;
+	}
+	
+	public MenuChoice add(String title, String endpoint) {
+		MenuChoice menuChoice = new MenuChoice(this, title, endpoint);
+		return add(menuChoice);
 	}
 }

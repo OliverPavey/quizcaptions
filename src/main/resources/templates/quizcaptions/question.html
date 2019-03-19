@@ -21,14 +21,6 @@
 	</div>
 </div>
 
-<div class="hidden" th:with="
-	nextUrl='/'+${showAnswer?'answer':'question'}+'?quizId='+${quizId}+'&roundId='+${roundId}+'&questionId='+${nextId},
-	roundUrl='/round?quizId='+${quizId}+'&roundId='+${roundId},
-	quizUrl='/quiz?quizId='+${quizId}">
-	<a accesskey="N" th:href="${hasNext ? nextUrl : quizUrl}">next</a>
-	<a accesskey="M" th:href="${roundUrl}">next</a>
-</div>
-
 <div th:replace="fragments/page :: footer"></div>
 </body>
 </html>
